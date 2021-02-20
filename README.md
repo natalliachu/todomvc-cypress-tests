@@ -47,19 +47,18 @@ const XSS_INJECTION_TODO = "<b onmouseover=alert('Wufff!')>click me!</b>"
  cy.get('.new-todo').type(`${XSS_INJECTION_TODO}{enter}`)
         cy.verifyCreatedTodo(XSS_INJECTION_TODO)
 ```
-* During test development I've noticed `id="toggle-all"` checkbox which is hidden, never visible on UI but exists in DOM. Few test cases can be added for this nice feature :)
+* During test development I've noticed hidden `id="toggle-all"` checkbox which is never visible on UI but exists in DOM and some test cases can be added for this nice feature :)
 
-### 🐛 Bug bonus!
+### 🐛 Bonus bug!
 #### Steps to reproduce: 
-1. Add a todo
-2. Double-click on it to open edit mode
-3. Delete the text in edit todo field
+1. Add a todo.
+2. Double-click on it to open edit mode.
+3. Delete the text in edit todo field.
 4. Unfocus the field without saving changes.
 > This todo is not deleted, not in edit mode and its layout is broken. 
-5. Click on that todo once again
-6. Try to unfocus or delete
+5. Click on that todo once again.
+6. Try to unfocus or delete.
 > This todo is back to edit mode but it can't be reverted back. Even by adding a new todo.
 
 ![alt text](https://media.giphy.com/media/t8sCmiDgr6DUYS56sZ/giphy.gif)
-
 
